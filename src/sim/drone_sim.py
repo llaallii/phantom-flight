@@ -25,7 +25,7 @@ class DroneSim:
 
     def __init__(
         self,
-        urdf_path: str = "assets/urdf/simple_quad.urdf",
+        urdf_path: str = "assets/urdf/quad.urdf",
         gui: bool = True,
         time_step: float = 1.0 / 240.0,
         max_thrust_per_motor: float = 10.0,
