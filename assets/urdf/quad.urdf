@@ -1,0 +1,130 @@
+<?xml version="1.0"?>
+<robot name="simple_quad">
+
+  <!-- Base link: central body of the quadcopter -->
+  <link name="base_link">
+    <inertial>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <mass value="1.0"/>
+      <inertia ixx="0.0035" ixy="0" ixz="0"
+               iyy="0.0035" iyz="0"
+               izz="0.0067"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.2 0.2 0.05"/>
+      </geometry>
+      <material name="blue">
+        <color rgba="0.2 0.4 0.8 1"/>
+      </material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.2 0.2 0.05"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <!-- Motor 1: front-right (+X, -Y) -->
+  <link name="motor1">
+    <inertial>
+      <mass value="0.01"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1e-6" ixy="0" ixz="0"
+               iyy="1e-6" iyz="0"
+               izz="1e-6"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.02" length="0.01"/>
+      </geometry>
+      <material name="red">
+        <color rgba="1 0 0 1"/>
+      </material>
+    </visual>
+  </link>
+  <joint name="motor1_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="motor1"/>
+    <origin xyz="0.1 -0.1 0" rpy="0 0 0"/>
+  </joint>
+
+  <!-- Motor 2: front-left (+X, +Y) -->
+  <link name="motor2">
+    <inertial>
+      <mass value="0.01"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1e-6" ixy="0" ixz="0"
+               iyy="1e-6" iyz="0"
+               izz="1e-6"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.02" length="0.01"/>
+      </geometry>
+      <material name="green">
+        <color rgba="0 1 0 1"/>
+      </material>
+    </visual>
+  </link>
+  <joint name="motor2_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="motor2"/>
+    <origin xyz="0.1 0.1 0" rpy="0 0 0"/>
+  </joint>
+
+  <!-- Motor 3: rear-left (-X, +Y) -->
+  <link name="motor3">
+    <inertial>
+      <mass value="0.01"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1e-6" ixy="0" ixz="0"
+               iyy="1e-6" iyz="0"
+               izz="1e-6"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.02" length="0.01"/>
+      </geometry>
+      <material name="red">
+        <color rgba="1 0 0 1"/>
+      </material>
+    </visual>
+  </link>
+  <joint name="motor3_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="motor3"/>
+    <origin xyz="-0.1 0.1 0" rpy="0 0 0"/>
+  </joint>
+
+  <!-- Motor 4: rear-right (-X, -Y) -->
+  <link name="motor4">
+    <inertial>
+      <mass value="0.01"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1e-6" ixy="0" ixz="0"
+               iyy="1e-6" iyz="0"
+               izz="1e-6"/>
+    </inertial>
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <cylinder radius="0.02" length="0.01"/>
+      </geometry>
+      <material name="green">
+        <color rgba="0 1 0 1"/>
+      </material>
+    </visual>
+  </link>
+  <joint name="motor4_joint" type="fixed">
+    <parent link="base_link"/>
+    <child link="motor4"/>
+    <origin xyz="-0.1 -0.1 0" rpy="0 0 0"/>
+  </joint>
+
+</robot>
