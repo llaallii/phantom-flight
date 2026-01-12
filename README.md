@@ -1,5 +1,3 @@
----
-
 # Phantom-Flight
 
 ### Physics-Accurate Quadcopter Digital Twin + RL Training Pipeline
